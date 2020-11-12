@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body * { font-family: Montserrat, sans-serif;}
+
+.indent { max-width: 980px; margin: 0 auto; width: 100%; padding: 0 20px;}
+.shelf { display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
