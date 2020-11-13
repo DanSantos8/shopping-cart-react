@@ -1,0 +1,6 @@
+.b-update { display: flex; flex-direction: column;}
+.b-update__qty { display: flex;}
+.b-update__btn { background: #f8f8f8; margin: 0 5px; border: 1px solid #575757; border-radius: 2px;}
+.b-update__submit {display: flex; justify-content: center; padding: 5px 10px;}
+.b-update__btn--a { background: none; margin: 0; border: none; border-radius: 2px; font-size: .7rem;}
+.b-update__input { display: flex; width: 30px; text-align: center; font-weight: bold; }
