@@ -5,17 +5,22 @@ const products = createSlice({
 	initialState: {
 		loading: true,
 		data: null,
+		product: {},
 		error: null,
 	},
 	reducers: {
-		fetchProductsSuccess(state, action){
+		fetchProductsSuccess: (state, action) =>{
 			state.loading = false;
 			state.data = action.payload;
 		},
-		fetchProductsError(state, action){
+		fetchProductsError: (state, action) => {
 			state.loading = false;
 			state.error = action.payload;
-		}
+		},
+		getProductDetails: (state, action) => {
+			console.log(action.payload);
+			state.product = state.data.filter(i => i.id === action.payload);
+		},
 	}
 });
 
@@ -31,5 +36,5 @@ export const dataProducts = () => async (dispatch) => {
 	}
 }
 
-export const {fetchProductsSuccess} = products.actions;
+export const {fetchProductsSuccess, getProductDetails} = products.actions;
 export default products.reducer;

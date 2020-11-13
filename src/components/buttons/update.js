@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {refreshTotalAmountCart, removeItemCart} from "../../redux/reducers/cart";
 import './style.css';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+//TODO criar alerta perguntando se o usuário deseja remover o item do carrinho (ao clicar em excluir e quando input for 0)
 
 const BtnUpdate = ({id, price}) => {
 	const dispatch = useDispatch();
@@ -10,9 +11,10 @@ const BtnUpdate = ({id, price}) => {
 	const handleAdd = () => setQty(qty + 1);
 	const handleDecrease = () => setQty(qty - 1);
 
+
 	useEffect(() => {
-		if (qty === 0) dispatch(removeItemCart(id));
-	}, [qty])
+		qty === 0 && dispatch(removeItemCart(id))
+	}, [qty]);
 
 	const handleCartUpdate = () => {
 		const data = {

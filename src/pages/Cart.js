@@ -5,6 +5,7 @@ import Item from "../components/cart/item";
 function Cart() {
 	const {data} = useSelector(store => store.cart);
 	console.log(data);
+	//TODO criar total do carrinho e finalizar pedido
   return (
   	<>
 		<div className="content">

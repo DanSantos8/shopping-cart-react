@@ -1,13 +1,16 @@
 import React from 'react';
 import BtnUpdate from "../buttons/update";
+import {removeItemCart} from "../../redux/reducers/cart";
+import {useDispatch} from "react-redux";
 
 const Item = ({id, image, title, price, quantity, index, totalAmount}) => {
-
+	const dispatch = useDispatch();
+	const handleRemoveItem = () => dispatch(removeItemCart(id));
 	return(
 		<div className="c-item">
 			<div className="c-item__head">
 				<h4 className="c-item__h4">Produto {index}</h4>
-				<button>Excluir</button>
+				<button onClick={handleRemoveItem}>Excluir</button>
 			</div>
 			<div className="c-item__row">
 				<div className="c-item__block">

@@ -13,13 +13,14 @@ const cart = createSlice({
 			}
 		},
 		refreshTotalAmountCart: (state, action) => {
+			//TODO criar helper pra tratar o totalAmount => devolver pra view em formato R$
 			const index = state.data.findIndex( x => x.id === action.payload.id);
 			state.data[index].quantity = action.payload.quantity;
 			state.data[index].totalAmount = (action.payload.quantity * parseFloat(state.data[index].price.replace('.','').replace(',', '.'))).toFixed(2);
 		},
 		removeItemCart: (state, action) => {
 			state.data = state.data.filter(i => i.id !== action.payload);
-			console.log(current(state));
+			//console.log(current(state));
 		}
 	}
 });
