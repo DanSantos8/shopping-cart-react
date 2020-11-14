@@ -3,7 +3,6 @@ import {refreshTotalAmountCart, removeItemCart} from "../../redux/reducers/cart"
 import './Cart.css';
 import {useDispatch} from "react-redux";
 import Alert from "../alerts";
-//TODO criar alerta perguntando se o usuário deseja remover o item do carrinho (ao clicar em excluir e quando input for 0)
 
 const BtnUpdate = ({id, price}) => {
 	const dispatch = useDispatch();
