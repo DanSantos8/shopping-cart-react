@@ -23,7 +23,6 @@ function Home() {
 			setsearchResult(results);
 		}
 
-		//console.log(searchResult);
 	}, [data, searchTerm]);
 
 	const handleChange = e => {

@@ -11,7 +11,6 @@ function Cart() {
 	const [order, setOrder] = useState(false);
 
 	let total = formatBrl(data.reduce(getTotal,0));
-	console.log(formatBrl(total));
 
 	const handleCleanCart = () => {
 		dispatch(cleanCart());

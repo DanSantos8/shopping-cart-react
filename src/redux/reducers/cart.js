@@ -21,7 +21,6 @@ const cart = createSlice({
 		},
 		cleanCart: (state) => {
 			state.data = [];
-			console.log('entrou');
 		}
 	}
 });
