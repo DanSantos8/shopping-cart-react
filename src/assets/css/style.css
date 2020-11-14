@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body * { font-family: Montserrat, sans-serif;}
+
+.indent { max-width: 980px; margin: 0 auto; width: 100%; padding: 2rem 1.5rem 2rem;}
+.content { max-width: 1200px; width: 100%; margin: 0 auto;}
+.content__shelf { max-width: 768px; margin: 0 auto; padding: 0 10px;}
+.content__title { padding: 2.5em 0;}
+.content__title h4 {text-align: center; font-size: 2rem}
+.content__input { margin: .5rem 0;}
+.content__order { display: flex; justify-content: space-between; padding: 10px 0; align-items: center;}
+.content__button { background-color: #3f7920; border: 1px; padding: 10px; font-size: .8rem; color: white; font-weight: bold; transition: all .4s ease; border-radius: 5px; }
+.content__button:hover { background-color: #274c13; }
+.content__container { position: fixed; width: 100vw; height: 100vh; top: 0; background-color: black; opacity: 0.6; left: 0;}
+.content__message { font-size: 1rem; padding: 1.5rem; background-color: white; border-radius: 10px; width: 200px; text-align: center;
+	position: fixed; left: calc(50% - 100px); color: #252525;
+	top: 45%;}
+.shelf { display: grid;grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; padding-top: 2rem; border-top: 1px solid #252525 }
+.shelf-details { display: flex; }

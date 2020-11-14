@@ -1,19 +1,49 @@
-import React from 'react';
-import {useSelector} from "react-redux";
-import Item from "../components/cart/item";
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import Item from "../components/cart/Item";
+import Header from "../components/header";
+import {cleanCart} from "../redux/reducers/cart";
+import {getTotal, formatBrl} from "../redux/helper/format";
 
 function Cart() {
+	const dispatch = useDispatch();
 	const {data} = useSelector(store => store.cart);
-	console.log(data);
-	//TODO criar total do carrinho e finalizar pedido
+	const [order, setOrder] = useState(false);
+
+	let total = formatBrl(data.reduce(getTotal,0));
+	console.log(formatBrl(total));
+
+	const handleCleanCart = () => {
+		dispatch(cleanCart());
+		setOrder(true);
+		const timer = setTimeout(() => {
+			setOrder(false);
+		}, 2000);
+		return () => clearTimeout(timer);
+	}
   return (
   	<>
 		<div className="content">
 			<div className="indent">
-				<div className="content__title">
-					<h4>Meu carrinho</h4>
-				</div>
+				<Header title="Meu carrinho"/>
+
 				<div className="content__shelf">
+					{data.length > 0 &&
+					<div className="content__order">
+						<span className="content__total">
+							Total: R$ {total}
+						</span>
+						<button className="content__button" onClick={handleCleanCart}>
+							Finalizar Pedido
+						</button>
+					</div>
+					}
+					{
+						order &&
+						<div className="content__container">
+							<span className="content__message">Obrigado!</span>
+						</div>
+					}
 					<div className="content__item">
 
 						{data.length > 0 ?

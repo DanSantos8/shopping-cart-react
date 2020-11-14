@@ -18,7 +18,6 @@ const products = createSlice({
 			state.error = action.payload;
 		},
 		getProductDetails: (state, action) => {
-			console.log(action.payload);
 			state.product = state.data.filter(i => i.id === action.payload);
 		},
 	}
@@ -29,7 +28,6 @@ export const dataProducts = () => async (dispatch) => {
 		const response = await fetch(
 			'https://5fac82cd03a60500167e7f16.mockapi.io/api/products',
 		).then((r) => r.json());
-		//console.log(response);
 		dispatch(fetchProductsSuccess(response));
 	} catch (error) {
 		//TODO pegar mensagem de erro do retorno da API e dar dispatch pro reducer

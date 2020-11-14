@@ -1,8 +1,9 @@
 import React, {useCallback} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {addItemCart} from "../../redux/reducers/cart";
-import './style.css';
+import {useDispatch} from "react-redux";
+import {addItemCart, removeItemCart} from "../../redux/reducers/cart";
+import './Product.css';
 import {Link} from "react-router-dom";
+import Button from "../buttons/Button";
 
 export const Product = ({id, image, title, price}) => {
 	const dataProduct = {
@@ -15,9 +16,8 @@ export const Product = ({id, image, title, price}) => {
 	}
 	const dispatch = useDispatch();
 
-	const handleAddItem = useCallback(() => {
-		dispatch(addItemCart(dataProduct));
-	})
+	const handleAddItem = () => dispatch(addItemCart(dataProduct));
+	const handleRemoveItem = () => dispatch(removeItemCart(id));
 
 	return (
 		<div className="product">
@@ -32,10 +32,7 @@ export const Product = ({id, image, title, price}) => {
 					<span>R$ {price}</span>
 				</div>
 			</Link>
-			<div className="product__btn">
-				<button onClick={handleAddItem}>Adicionar ao carrinho</button>
-			</div>
-
+			<Button home={true} handleAddItem={handleAddItem} handleRemoveItem={handleRemoveItem} id={id} />
 		</div>
 
 

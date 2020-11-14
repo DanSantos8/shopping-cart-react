@@ -1,6 +1,6 @@
 import React from 'react';
-import './style.css';
-import Cart from '../../images/ico-cart.png';
+import './Cart.css';
+import Cart from '../../assets/images/ico-cart.png';
 import { Link } from 'react-router-dom';
 
 const FloatCart = () => (

@@ -1,4 +1,5 @@
-import {createSlice, current} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
+import {formatFloat} from "../helper/format";
 
 const cart = createSlice({
 	name: 'cart',
@@ -8,22 +9,22 @@ const cart = createSlice({
 	reducers: {
 		addItemCart: (state, action) => {
 			let index = state.data.findIndex((i) => i.id === action.payload.id);
-			if (index === -1) {
-				state.data.push(action.payload);
-			}
+			index === -1 && state.data.push(action.payload);
 		},
 		refreshTotalAmountCart: (state, action) => {
-			//TODO criar helper pra tratar o totalAmount => devolver pra view em formato R$
 			const index = state.data.findIndex( x => x.id === action.payload.id);
 			state.data[index].quantity = action.payload.quantity;
-			state.data[index].totalAmount = (action.payload.quantity * parseFloat(state.data[index].price.replace('.','').replace(',', '.'))).toFixed(2);
+			state.data[index].totalAmount = formatFloat(action.payload.quantity, state.data[index].price);
 		},
 		removeItemCart: (state, action) => {
 			state.data = state.data.filter(i => i.id !== action.payload);
-			//console.log(current(state));
+		},
+		cleanCart: (state) => {
+			state.data = [];
+			console.log('entrou');
 		}
 	}
 });
 
-export const {addItemCart, refreshTotalAmountCart, removeItemCart} = cart.actions;
+export const {addItemCart, refreshTotalAmountCart, removeItemCart, cleanCart} = cart.actions;
 export default cart.reducer;

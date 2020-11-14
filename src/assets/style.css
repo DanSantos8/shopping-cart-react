@@ -1,9 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-body * { font-family: Montserrat, sans-serif;}
-
-.indent { max-width: 980px; margin: 0 auto; width: 100%; padding: 0 1.5rem;}
-.content { max-width: 1200px; width: 100%; margin: 0 auto;}
-.content__shelf { max-width: 768px; margin: 0 auto; padding: 0 10px;}
-.content__title { padding: 2.5em 0;}
-.content__title h4 {text-align: center; font-size: 2rem}
-.shelf { display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem 1rem; padding-top: 2rem; border-top: 1px solid #252525 }
