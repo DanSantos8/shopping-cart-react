@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import BtnUpdate from "./Update";
 import Alert from "../alerts";
 import Remove from '../../assets/images/remove.png'
+import {Link} from "react-router-dom";
 
 const Item = ({id, image, title, price, quantity, index, totalAmount}) => {
 	const [active, setActive] = useState(false);
@@ -16,14 +17,14 @@ const Item = ({id, image, title, price, quantity, index, totalAmount}) => {
 				}
 			</div>
 			<div className="c-item__row">
-				<div className="c-item__block">
+				<Link to={`/details/${id}`} className="c-item__block">
 					<div className="c-item__image c-item__margin">
 						<img className="c-item__img" src={image} alt={title}/>
 					</div>
 					<div className="c-item__col c-item__margin">
 						<span className="c-item__title">{title}</span>
 					</div>
-				</div>
+				</Link>
 				<div className="c-item__block c-item__block--update">
 					<div className="c-item__margin">
 						<span className="c-item__price">R$ {price}</span>
